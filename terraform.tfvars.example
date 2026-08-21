@@ -1,0 +1,32 @@
+# ==============================================================================
+# Imperva Cloud WAF (Imperva for AWS / vPoP) Demo App Configuration
+# Copy this file to terraform.tfvars and fill in your values
+# ==============================================================================
+
+# AWS Region to deploy the demo application
+AWS_region = "us-east-1"
+
+# Resource identification & compliance tags
+tag_name               = "imperva-vpop-demo-app"
+tag_owner_email        = "danny.milshtein@thalesgroup.com"
+tag_manager_email      = "manager@thalesgroup.com"
+tag_team_email         = "cybersec-se-team@thalesgroup.com"
+tag_description        = "vPoP Demo App for AWS"
+tag_environment        = "SE Demo Lab"
+tag_dataclassification = "THALES GROUP LIMITED DISTRIBUTION"
+
+# Imperva Cloud WAF Credentials (obtained from Imperva Management Console -> Account Settings -> API Keys)
+incapsula_api_id  = "YOUR_INCAPSULA_API_ID"
+incapsula_api_key = "YOUR_INCAPSULA_API_KEY"
+
+# Domain name for the site onboarding in Imperva Cloud WAF
+alternative_domain_name = "demo-vpop.yourdomain.com"
+
+# Set to true to automatically request an official ACM certificate in us-east-1,
+# validate it via NS1 DNS, attach the alias to CloudFront, and point the domain to CloudFront.
+# Set to false to use CloudFront's default domain/certificate without updating NS1.
+set_alternative_domain = false
+
+# NS1 DNS Integration (required only if set_alternative_domain = true)
+ns1_api_key = "YOUR_NS1_API_KEY"
+ns1_zone    = "yourdomain.com" # Optional, defaults to root domain of alternative_domain_name
